@@ -1,0 +1,70 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+  application:
+    name: keycloakDemo
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          keycloak:
+#            clientId: demo
+#            clientSecret: 6676e8d8-aec8-4b4f-80f5-598bb49a73e4
+#            authorizationGrantType: authorization_code
+#            redirectUri: http://localhost:8600/login/oauth2/code/keycloak
+#        provider:
+#          keycloak:
+#            authorizationUri: http://172.19.229.73:8080/auth/realms/myrealm/protocol/openid-connect/auth
+#            tokenUri: http://172.19.229.73:8080/auth/realms/myrealm/protocol/openid-connect/token
+#            userInfoUri: http://172.19.229.73:8080/auth/realms/myrealm/protocol/openid-connect/userinfo
+#            userNameAttribute: preferred_username
+
+
+
+server:
+  port: 8600
+keycloak:
+  realm: myrealm
+  auth-server-url: http://172.19.229.73:8080/auth
+  ssl-required: external
+  use-resource-role-mappings: true
+  public-client: true
+  bearer-only: true
+  credentials:
+    secret: 0e7d908c-d0ed-4635-951b-41d15cb3ac73
+  cors: true
+  resource: demo
+
+#  security-constraints:
+#    - authRoles:
+#        - user_manager
+#      securityCollections:
+#        - name: admin
+#          patterns:
+#            - /ma
+#    - authRoles:
+#        - ss
+#      securityCollections:
+#        - name: admin
+#          patterns:
+#            - /admin
+#    - authRoles:
+#        - admin
+#      securityCollections:
+#        - name: admin
+#          patterns:
+#            - /*
+#  resource: demo
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+
+
+
+
+
